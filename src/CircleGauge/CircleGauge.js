@@ -236,19 +236,19 @@ export default class CircleGauge extends React.Component {
             style={textStyle}>
             {this.props.unit}
           </text>
-          <rect
-            x={1}
-            y={1}
-            width={width - 2}
-            height={height - 2}
-            fill={'transparent'}
-            stroke={'rgb(170, 170, 170)'}
-            strokeWidth={'2px'} />
-          <polygon
-            points={`${width * 0.75},${height} \
-            ${width * 0.8},${height * 0.95}  ${width},${height * 0.95} \
-            ${width},${height} ${width * 0.75},${height}`}
-            style={{ fill: ('#aaa'), stroke:'', strokeWidth:1 }} />
+          //<rect
+          //  x={1}
+          //  y={1}
+          //  width={width - 2}
+          //  height={height - 2}
+          //  fill={'transparent'}
+          //  stroke={'rgb(170, 170, 170)'}
+          //  strokeWidth={'2px'} />
+          // <polygon
+          //   points={`${width * 0.75},${height} \
+          //   ${width * 0.8},${height * 0.95}  ${width},${height * 0.95} \
+          //   ${width},${height} ${width * 0.75},${height}`}
+          //   style={{ fill: ('#aaa'), stroke:'', strokeWidth:1 }} />
         </svg>
       </div>
     )
