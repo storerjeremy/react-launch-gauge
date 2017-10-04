@@ -27,7 +27,11 @@ export default class CircleGauge extends React.Component {
     wrapStyle: PropTypes.object,
     style: PropTypes.object,
     duration: PropTypes.number,
-    id: PropTypes.string.isRequired
+    id: PropTypes.string.isRequired,
+    labelSize: PropTypes.number,
+    labelFill: PropTypes.string,
+    unitSize: PropTypes.number,
+    unitFill: PropTypes.string
   };
 
   static defaultProps = {
@@ -44,7 +48,11 @@ export default class CircleGauge extends React.Component {
     progressBkg: '#666',
     mainBkg: '#333',
     highColor: 'crimson',
-    id: 'launch-gauge'
+    id: 'launch-gauge',
+    labelSize: 26,
+    labelFill: '#aaa',
+    unitSize: 24,
+    unitFill: '#aaa'
   };
   constructor (props) {
     super(props)
@@ -81,7 +89,7 @@ export default class CircleGauge extends React.Component {
   }
   componentWillMount () {
     this.pie = pie()
-    .value(function (d) { return d.number })
+      .value(function (d) { return d.number })
       .startAngle(this.props.startAngle / 180 * Math.PI)
       .endAngle(this.props.endAngle / 180 * Math.PI)
       .sort(null)
@@ -212,8 +220,8 @@ export default class CircleGauge extends React.Component {
           <text
             x={this.props.width / 2}
             y={this.props.height / 2}
-            fontSize={36}
-            fill={'#eee'}
+            fontSize={this.props.labelSize}
+            fill={this.props.labelFill}
             textAnchor={'middle'}
             alignmentBaseline={'central'}
             style={textStyle}>
@@ -229,8 +237,8 @@ export default class CircleGauge extends React.Component {
           <text
             x={this.props.width * this.getLabelPos(labelPos)}
             y={this.props.height - 40}
-            fontSize={24}
-            fill={'#eee'}
+            fontSize={this.props.unitSize}
+            fill={this.props.unitFill}
             textAnchor={'middle'}
             alignmentBaseline={'central'}
             style={textStyle}>
